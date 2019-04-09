@@ -16,6 +16,11 @@ window.addEventListener('scroll', function(event){
     nav.style.background = 'gray';
 });
 
+const aTag = document.querySelector('a');
+aTag.addEventListener('click', function(event){
+    event.preventDefault();
+});
+
 const intro = document.querySelector( '.intro h2');
 
 window.addEventListener('keydown', function(event){
@@ -30,4 +35,23 @@ const introImg = document.querySelector('.intro img');
 introImg.addEventListener('dblclick', function(event){
     let target = event.target;
     target.style.border = '1px solid red';
+});
+
+const contentPick = document.querySelector('.content-pick');
+
+contentPick.addEventListener('click', function(event){
+    //contentPick.style.color = 'red';
+    const button = document.querySelector('.btn');
+    button.addEventListener('click', function(event){
+        TweenMax.to('.btn', 1, {x:50, ease: Bounce.easeOut})
+        event.stopPropagation();
+    }); 
 })
+
+const wheelEvent = document.querySelectorAll('.content-destination img');
+
+wheelEvent.addEventListener('wheel', function(event){
+    wheelEvent.style.border = '1px solid red';
+});
+
+
